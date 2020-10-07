@@ -1,0 +1,464 @@
+/*saving colors
+dark blue 'rgb(39, 75, 105)'
+aqua'rgb(63, 77, 99)'
+cream 'rgb(198, 204, 216)'
+light blue (133, 161, 193)'
+dark grey (32, 32, 34)'
+
+darkmode grey rgb(57, 65, 78)
+green rgb(90, 217, 164)
+whitesmoke
+
+ios
+darkmode grey rgb(30, 30, 33)
+lighter part gret rgb(53, 53, 57)
+blue rgb(0, 123, 255)
+green rgb(74, 218, 100)
+yellow 	rgb(255, 205, 0)
+
+light grey rgb(78, 76, 76)
+ligther grey  rgb(105, 105, 105)
+
+light cream 'rgb(255, 242, 226)'
+dark cream 'rgb(224, 212, 182)'
+kinda pink rgb(235, 211, 203)
+dark blue rgb(60, 61, 88)
+
+*/
+
+
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Segoe UI;
+    background: linear-gradient(to bottom, rgb(78, 76, 76) 0%,  rgba(105, 105, 105, 0.3) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+.navbar {
+  background-color: rgb(255, 242, 226);
+}
+
+
+.nav {
+  overflow-x: auto;
+  overflow-y:hidden;
+  flex-wrap: nowrap;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  white-space: nowrap;
+  display:block!important;
+}
+
+.nav li {
+  white-space: nowrap;
+  display: inline-block
+}
+
+ul {
+    background-color: rgb(255, 242, 226);
+}
+
+k {
+  height: 28px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+k:hover{
+  color: rgba(30, 30, 33, 0.75);
+}
+
+ul li {
+    padding: 10px;
+    position: relative;
+}
+
+ul a {
+    color: rgb(58, 58, 64);
+    transition: 250ms;
+   
+}
+
+ul a:hover{
+    color: rgba(30, 30, 33, 0.75);
+}
+
+ul a::before{
+    content: '';
+    display: block;
+    height: 3px;
+    width: 0%;
+    background-color: rgb(30, 30, 33, 0.75);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -24.5%;
+    transition: all ease-in-out 250ms;
+}
+
+ul a:hover::before{
+    width: 50%;
+}
+
+ul a.active::after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 50%;
+    background-color: rgb(30, 30, 33);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -24.5%;
+}
+
+
+ul a2{
+height: 40px !important;
+}
+
+.tab-content {
+    color:white;
+    padding-top: 24px;
+    padding-left: 18px;
+    padding-right: 18px;
+    background-color: rgb(53, 53, 57);
+    min-height: max-content;
+  }
+
+
+
+
+/*TEXT PART AND BUTTON*/
+  hr {
+    border: 2px solid rgb(255, 255, 255) ;
+    width: auto;
+    padding: 0 0;
+    margin: 0;
+  }
+  
+
+  .halfBR {
+      content: '';
+      display: block;
+      height: 12px;
+  }
+
+  .quarterBR {
+    content: '';
+    display: block;
+    height: 6px;
+}
+
+
+  input {
+    float: right; clear: both;
+    text-align: right;
+    font-size: 15px;
+    padding-left: 4px;
+    padding-right: 4px;
+    width:100px;
+    border-radius: 16px;
+    background-color: whitesmoke;
+  }
+
+  .resform{
+    background-color: rgb(78, 76, 76);
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    border: 2px solid whitesmoke;
+    border-radius: 4px;
+    font-style: italic;
+    font-size: 15px;
+    padding: 8px;
+    transition: 0.4s;
+  }
+
+  .resform:hover {
+    background-color:rgba(106, 105, 105, 0.75);
+  }
+  
+
+  .result {
+    float: right; clear: both;
+    text-align: right;
+    font-size: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 2px;
+    min-width:100px;
+    background-color:rgb(78, 76, 76);
+    border: 2px solid whitesmoke;
+    border-radius: 16px;
+  }
+
+  .resultComp {
+    float: right; clear: both;
+    text-align: right;
+    font-size: 13px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 2px;
+    min-width:80px;
+    background-color:rgb(78, 76, 76);
+    border: 0px solid whitesmoke;
+    border-radius: 16px;
+  }
+
+  .lifetime1 {
+    text-align: left;
+    font-size: 12px;
+    color: black;
+    background-color: whitesmoke;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 1px;
+    padding-top: 1px;
+    border-radius: 16px;
+  }
+  
+
+  small {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.694) ;
+    vertical-align: top;
+  }
+  
+  .execute{
+    margin: 0;
+    position: relative;
+    left: 50%;
+    -ms-transform: translate(-50%);
+    transform: translate(-50%);
+    background-color:rgb(57, 65, 78);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 14px 16px;
+    font-size: 17px;
+    border-radius: 4px;
+    transition: 250ms;
+  }
+  
+  .execute:hover {
+    background-color: rgb(71, 81, 98);
+  }
+  
+
+
+
+
+
+  /*COLLAPSABLE2*/
+  .accordion2 {
+    background-color:rgb(53, 53, 57);
+    border: 0 solid whitesmoke;
+    cursor: pointer;
+    transition: 250ms;
+    float: right; clear: both;
+    padding: 0 0;
+    vertical-align: top;
+  }
+  
+  .accordion2:hover {
+    background-color:rgba(53, 53, 57, 0.85);
+  }
+
+  .accordion2.active {
+    background-color:rgba(53, 53, 57, 0.85);
+  }
+  
+  .panel2 {
+    padding: 0 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    color:rgb(53, 53, 57);
+    width: 94%;
+    font-size: 12px;
+    padding-right: 8px;
+    padding-left: 8px;
+    padding-bottom: 1px;
+    margin-top: 6px;
+    margin-right: 6px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    text-align: justify;
+    background-color: rgb(255, 205, 0);
+    border: 0px solid whitesmoke;
+  }
+  
+
+  .infocircle {
+    float: right; clear: both;
+    opacity: 60%;
+  }
+
+  
+
+  /*COLLAPSABLE*/
+  .accordion {
+    background-color:rgb(78, 76, 76);
+    color:rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    padding: 8px;
+    width: 100%;
+    border: 2px solid whitesmoke;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 250ms;
+    border-radius: 4px;
+    
+  }
+  
+  .accordion:hover {
+    background-color:rgba(106, 105, 105, 0.75);
+  }
+  
+  .accordion:after {
+    content: '\002B';
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+  }
+  
+  .accordion.active:after {
+    content: "\2212";
+  }
+  
+  .panel {
+    padding: 0 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 250ms ease-out;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.1);
+
+  }
+
+
+
+
+  /*TOGGLE SWITCH*/
+  /* The switch - the box around the slider */
+  .switch {
+    position: relative;
+    width: 60px;
+    height: 34px;
+    float: right; clear: both;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: rgb(63, 75, 105);
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px rgb(63, 75, 105);
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+
+
+
+
+/*TOAST MESSAGE*/
+  /* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+  margin: 0;
+  position: relative;
+  left: 50%; /* Center the snackbar */
+  -ms-transform: translate(-50%);
+  transform: translate(-50%);
+  visibility: hidden; /* Hidden by default. Visible on click */
+  background-color:	rgb(255, 205, 0); /* Black background color */
+  color: rgb(30, 30, 33); /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 2px; /* Rounded borders */
+  padding: 8px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 1; /* Add a z-index if needed */
+  bottom: 30px; /* 30px from the bottom */
+  border-radius: 2px;
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+  visibility: visible; /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+

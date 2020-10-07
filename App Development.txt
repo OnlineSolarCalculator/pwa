@@ -1,0 +1,21 @@
+
+1. bikin svg buat 4 logo
+2. kalo belom calculate ga bsa buka 3 tab lainnya?
+
+SETELAH JADI APP
+1. how to make PWA
+2. slide animation between pages??
+
+EXTRA STUFF
+X. use ems intead of px? try upload dulu
+1. Go above 40% you should turn on battery
+2. Bagian listrik perbulan bisa diganti advance klo gatau pengeluaran sendiri
+3. Map buat pilih lokasi- tau latitude bisa itung roof tilt
+4. number of panels
+5. Ganti unit
+6. battery banks umur cuma 5-10 tahun, harus di masukin jg di notes
+7. hamburger menu di top row menubar
+8. more references
+9. sustainability features!! Edge dari app adalah bagian sustainability!!
+10. TOMBOL calc nutupin ADVANCE kalo more info dibuka
+ 
