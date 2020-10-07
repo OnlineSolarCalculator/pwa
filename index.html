@@ -1,0 +1,773 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Online Solar Calculator</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+
+    <!-- Add icon library NANTI GANTI GAMBAR SENDIRI-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link 
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">  
+  
+  </head>
+
+
+  <body>
+
+  <div class="container" style="width: auto; margin: 0 auto; padding: 0;" >
+    
+    <ul class="nav nav-fill" id="myTab" role="tablist">
+
+      <li class="nav-item">
+        <k class="nav-link" onclick="window.location.reload()" href="#"> <img src="pics/LOGO.svg" aria-hidden="true" class="logo">   </k>
+      </li>
+      <li class="nav-item">
+        <k class="nav-link" id="about-tab" data-toggle="tab" href="#about" role="tab" aria-controls="about" aria-selected="false" style="opacity: 92%;">About</k>
+      </li>
+      <li class="nav-item">
+        <k class="nav-link" id="references-tab" data-toggle="tab" href="#references" role="tab" aria-controls="references" aria-selected="false" style="opacity: 92%;">References</k>
+      </li>
+      <br>
+
+      <li class="nav-item">
+        <a class="nav-link active" id="input-tab" data-toggle="tab" href="#input" role="tab" aria-controls="input" aria-selected="true"><i class= "fas fa-chevron-circle-right"></i> INPUT</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="system-tab" data-toggle="tab" href="#system" role="tab" aria-controls="system" aria-selected="false"><i class="fas fa-solar-panel"></i> PV SYSTEM</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="savings-tab" data-toggle="tab" href="#savings" role="tab" aria-controls="savings" aria-selected="false"><i class="fa fa-usd"></i> COST & SAVINGS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="carbon-tab" data-toggle="tab" href="#carbon" role="tab" aria-controls="carbon" aria-selected="false"><i class="fas fa-seedling"></i> CARBON EMISSION</a>
+      </li>
+    </ul>
+
+
+    <div class="tab-content" id="myTabContent">
+
+      <div class="tab-pane fade show active" id="input" role="tabpanel" aria-labelledby="input-tab">
+        <h4>ELECTRIC BILL </h4>
+        <table style="width:100%">
+          <tr>
+            <td rowspan="2" style="width: 3%;">
+            
+            </td>
+            <td>Monthly Energy Use</td>
+            <td rowspan="2" style="width: fit-content;"><input type="text" id="in1" oninput="validateNumber1(this)" /></td>
+          </tr>
+          <tr>
+            <td><small>kWh/month</small></td>
+          </tr>
+        </table>
+        <table style="width:100%">
+        <tr>
+          <td style="width: 3%;"></td>
+          <td><button class="accordion2" style="width:fit-content;height:fit-content;"> <img src="pics/infocream.svg" aria-hidden="true" class="infocircle"></svg></button>
+            <div class="panel2">
+              Household energy usages per month.
+            </div>     
+            </td>
+          </tr>
+        </table>
+
+        <table style="width:100%">
+          <tr>
+            <td rowspan="2" style="width: 3%;">
+            
+            </td>
+            <td>Electricity Cost</td>
+            <td rowspan="2" style="width: fit-content;"><input type="text" id="in2"  oninput="validateNumber2(this)"/></td>
+          </tr>
+          <tr>
+            <td><small>$/kWh</small></td>
+          </tr>
+        </table>
+        <table style="width:100%">
+          <tr>
+            <td style="width: 3%;"></td>
+            <td><button class="accordion2" style="width:fit-content;height:fit-content;"> <img src="pics/infocream.svg" aria-hidden="true" class="infocircle"></svg></button>
+              <div class="panel2">
+                Electricity cost per kWh from your local grid provider, converted to USD.
+              </div>     
+              </td>
+            </tr>
+          </table>
+        
+        <h4>SOLAR ENERGY PLAN </h4>
+        <table style="width:100%">
+          <tr>
+            <td rowspan="2" style="width: 3%;">
+            
+            </td>
+            <td>Solar Energy Coverage</td>
+            <td rowspan="2" style="width: fit-content;"><input type="text" id="in3" oninput="validateNumber3(this)"/></td>
+          </tr>
+          <tr>
+            <td><small>percentage (%)</small></td>
+          </tr>
+        </table>
+        <table style="width:100%">
+          <tr>
+            <td style="width: 3%;"></td>
+            <td><button class="accordion2" style="width:fit-content;height:fit-content;"> <img src="pics/infocream.svg" aria-hidden="true" class="infocircle"></svg></button>
+              <div class="panel2">
+                Portion of monthly energy consumptions planned to be covered by solar energy. Adding battery storage is advisable for coverage above 40%, but this will largely depend on your solar panel provider.
+              </div>     
+              </td>
+            </tr>
+          </table>
+
+        <table style="width:100%">
+          <tr>
+            <td rowspan="2" style="width: 3%;">
+            
+            </td>
+            <td>Daily Peak Sun Hours</td>
+            <td rowspan="2" style="width: fit-content;"><input type="text" id="in4" oninput="validateNumber4(this)"/></td>
+          </tr>
+          <tr>
+            <td><small>hours</small></td>
+          </tr>
+        </table>
+        <table style="width:100%">
+          <tr>
+            <td style="width: 3%;"></td>
+            <td><button class="accordion2" style="width:fit-content;height:fit-content;"> <img src="pics/infocream.svg" aria-hidden="true" class="infocircle"></svg></button>
+              <div class="panel2">
+                Period where the sunlight intensity is at its peak in your local region. The daily total of peak sun hours for each region can be seen on this <a href="pics/PVmap.png" target="_blank"><u>map</u></a> (range of 2.0-6.4).<sup>[1]</sup>
+              </div>     
+              </td>
+            </tr>
+          </table>
+        
+        <table style="width:100%">
+          <tr>
+            <td rowspan="2" style="width: 3%;">
+            
+            </td>
+            <td>Battery Storage</td>
+            <td rowspan="2" style="width: fit-content;"><label class="switch">
+              <input type="checkbox" id="check1">
+              <span class="slider round"></span>
+            </label></td>
+          </tr>
+          <tr>
+            <td><small>off/on</small></td>
+          </tr>
+        </table>
+        <table style="width:100%">
+          <tr>
+            <td style="width: 3%;"></td>
+            <td><button class="accordion2" style="width:fit-content;height:fit-content;"> <img src="pics/infocream.svg" aria-hidden="true" class="infocircle"></svg></button>
+              <div class="panel2">
+                Battery storage might significantly increase investment costs and return period in return of higher energy coverage capability, which further reduce carbon emission. For solar energy coverage of above 40%, it is advisable to add energy storage.
+              </div>     
+              </td>
+            </tr>
+          </table>
+        <div class="halfBR"></div>
+
+        <button class="accordion"><i>Advance</i></button>
+        <div class="panel">
+          <div class="halfBR"></div>
+          <form>
+          <table style="width:100%">
+            <tr>
+              <td rowspan="2" style="width: 3%;">
+                 
+              </td>
+              <td>PV System Cost</td>
+              <td rowspan="2" style="width: fit-content;"> <div style="font-size: 12px; text-align: right;"><i>battery storage off</i></div> <input type="text" id="in6" value="1.5" oninput="validateNumber6(this)"/></td>
+              <td rowspan="2" style="width: fit-content;"> <div style="font-size: 12px; text-align: right;"><i>battery storage on</i></div> <input type="text" id="in7" value="3" oninput="validateNumber7(this)"/></td>
+            </tr>
+            <tr>
+              <td><small>$/Watt</small></td>
+            </tr>
+          </table>
+          <div class="quarterBR"></div>
+          <table style="width:100%">
+            <tr>
+              <td style="width: 3%;"></td>
+              <td><button type="button" class="accordion2" style="width:fit-content;height:fit-content;"> <img src="pics/infocream.svg" aria-hidden="true" class="infocircle"></svg></button>
+                <div class="panel2">
+                  2020 global average for solar panel installation is approximately 1-2 $/Watt without storage and 2-4 $/Watt with storage. Consult your local solar panel provider for exact $/Watt ratios. Note that only one of the two columns needs to be filled depending on whether battery storage is off or on.
+                </div>     
+                </td>
+              </tr>
+            </table>
+          
+          <table style="width:100%">
+            <tr>
+              <td rowspan="2" style="width: 3%;">
+                 
+              </td>
+              <td>PV System Lifetime</td>
+              <td rowspan="2" style="width: fit-content;"><input type="text" id="in8" value="25" oninput="validateNumber8(this)"/></td>
+            </tr>
+            <tr>
+              <td><small>years</small></td>
+            </tr>
+          </table>
+          <table style="width:100%">
+            <tr>
+              <td style="width: 3%;"></td>
+              <td><button type="button" class="accordion2" style="width:fit-content;height:fit-content;"> <img src="pics/infocream.svg" aria-hidden="true" class="infocircle"></svg></button>
+                <div class="panel2">
+                  Typical solar panel lifespan is 20-30 years, with an average of 25 years.<sup>[2]</sup>
+                </div>     
+                </td>
+              </tr>
+            </table>
+
+          <table style="width:100%">
+            <tr>
+              <td rowspan="2" style="width: 3%;">
+                 
+              </td>
+              <td>Performance Ratio</td>
+              <td rowspan="2" style="width: fit-content;"><input type="text" id="in9" value="0.75" oninput="validateNumber9(this)"/></td>
+            </tr>
+            <tr>
+              <td><small>-</small></td>
+            </tr>
+          </table>
+          <table style="width:100%">
+            <tr>
+              <td style="width: 3%;"></td>
+              <td><button type="button" class="accordion2" style="width:fit-content;height:fit-content;"> <img src="pics/infocream.svg" aria-hidden="true" class="infocircle"></svg></button>
+                <div class="panel2">
+                  Coefficient for system losses ranges between 0.5-0.9, with a default value of 0.75. Examples of performance losses in real-world applications are from shadings, inverters, cables, and system temperature.<sup>[3]</sup> 
+                </div>     
+                </td>
+              </tr>
+            </table>
+
+          <table style="width:100%">
+            <tr>
+              <td rowspan="2" style="width: 3%;">
+                 
+              </td>
+              <td>Grid Carbon Emission Factor</td>
+              <td rowspan="2" style="width: fit-content;"><input type="text" id="in10" value="0.37" oninput="validateNumber10(this)"/></td>
+            </tr>
+            <tr>
+              <td><small>kgCO<sub>2</sub>eq/kWh</small></td>
+            </tr>
+          </table>
+          <table style="width:100%">
+            <tr>
+              <td style="width: 3%;"></td>
+              <td><button type="button" class="accordion2" style="width:fit-content;height:fit-content;"> <img src="pics/infocream.svg" aria-hidden="true" class="infocircle"></svg></button>
+                <div class="panel2">
+                  Emission factor for coal-based grid electricity production.<sup>[4]</sup>
+                </div>     
+                </td>
+              </tr>
+            </table>
+            
+          <table style="width:100%">
+            <tr>
+              <td rowspan="2" style="width: 3%;">
+                 
+              </td>
+              <td>Solar Energy Carbon Emission Factor</td>
+              <td rowspan="2" style="width: fit-content;"><input type="text" id="in11" value="0.03" oninput="validateNumber11(this)"/></td>
+            </tr>
+            <tr>
+              <td><small>kgCO<sub>2</sub>eq/kWh</small></td>
+            </tr>
+          </table>
+          <table style="width:100%">
+            <tr>
+              <td style="width: 3%;"></td>
+              <td><button type="button" class="accordion2" style="width:fit-content;height:fit-content;"> <img src="pics/infocream.svg" aria-hidden="true" class="infocircle"></svg></button>
+                <div class="panel2">
+                  Emission factor for electricity production with photovoltaics.<sup>[4]</sup> 
+                </div>     
+              </td>
+            </tr>
+          </table>
+          <div class="halfBR"></div>
+
+          <input class="resform" type="reset" value="Reset Value">
+          <div class="halfBR"></div>
+          <div class="halfBR"></div>
+          <div class="halfBR"></div>
+          <div class="halfBR"></div>
+          <div class="quarterBR"></div>
+          </form>
+          </div>
+       
+        <div class="halfBR"></div>
+        <div class="halfBR"></div>
+        <button class="execute" onclick="calc();">CALCULATE &#10097;&#10097;</button> 
+        <div class="halfBR"></div>
+        <div class="halfBR"></div>
+        <div id="snackbar"><i>MISSING OR INVALID PARAMETER <br> PLEASE INPUT VALID DATA</i></div>
+      </div>
+      
+      
+      <div class="tab-pane fade" id="system" role="tabpanel" aria-labelledby="system-tab">
+        <h4>SOLAR PANEL SYSTEM </h4>
+        <table style="width:100%">
+          <tr>
+            <td rowspan="2" style="width: 3%;">
+            </td>
+            <td>Minimum PV Size</td>
+            <td rowspan="2" style="width: fit-content;"><output class = "result" type="text" id="save1">&nbsp;</output></td>
+          </tr>
+          <tr>
+            <td><small>kWp</small></td>
+          </tr>
+        </table>
+        <table style="width:100%">
+          <tr>
+            <td style="width: 3%;"></td>
+            <td><button type="button" class="accordion2" style="width:fit-content;height:fit-content;"> <img src="pics/infocream.svg" aria-hidden="true" class="infocircle"></svg></button>
+              <div class="panel2">
+                Size of PV system to daily supply the energy coverage percentage.
+              </div>     
+            </td>
+          </tr>
+        </table>
+
+        <table style="width:100%">
+          <tr>
+            <td rowspan="2" style="width: 3%;">
+            </td>
+            <td>Solar Energy Generated</td>
+            <td rowspan="2" style="width: fit-content;"><output class = "result" type="text" id="save2">&nbsp;</output></td>
+          </tr>
+          <tr>
+            <td><small>kWh/year</small></td>
+          </tr>
+        </table>
+        <table style="width:100%">
+          <tr>
+            <td style="width: 3%;"></td>
+            <td><button type="button" class="accordion2" style="width:fit-content;height:fit-content;"> <img src="pics/infocream.svg" aria-hidden="true" class="infocircle"></svg></button>
+              <div class="panel2">
+                Total yearly energy generated from the PV system.
+              </div>     
+            </td>
+          </tr>
+        </table>
+
+        <table style="width:100%">
+          <tr>
+            <td rowspan="2" style="width: 3%;">
+            </td>
+            <td>Energy Covered from Grid</td>
+            <td rowspan="2" style="width: fit-content;"><output class = "result" type="text" id="save3">&nbsp;</output></td>
+          </tr>
+          <tr>
+            <td><small>kWh/year</small></td>
+          </tr>
+        </table>
+        <table style="width:100%">
+          <tr>
+            <td style="width: 3%;"></td>
+            <td><button type="button" class="accordion2" style="width:fit-content;height:fit-content;"> <img src="pics/infocream.svg" aria-hidden="true" class="infocircle"></svg></button>
+              <div class="panel2">
+                Total yearly energy demand remaining to be covered by the grid.
+              </div>     
+            </td>
+          </tr>
+        </table>
+        
+        <div class="quarterBR"></div>
+        <table style="width:100%">
+          <tr>
+            <td><button class="prev" onclick="TwoToOne();">&#10096;&#10096; PREV</button> 
+            </td>
+            <td></td>
+            <td><button class="next" onclick="TwoToThree();">NEXT &#10097;&#10097;</button> 
+            </td>
+          </tr>
+        </table>
+      
+        <div class="halfBR"></div>
+        <div class="halfBR"></div>
+     
+      </div>
+
+
+      <div class="tab-pane fade" id="savings" role="tabpanel" aria-labelledby="savings-tab"> 
+        <h4>INVESTMENT COST </h4>
+        <table style="width:100%">
+          <tr>
+            <td rowspan="2" style="width: 3%;">
+            </td>
+            <td>PV System Cost</td>
+            <td rowspan="2" style="width: fit-content;"><output class = "result" type="text" id="save4">&nbsp;</output></td>
+          </tr>
+          <tr>
+            <td><small>$</small></td>
+          </tr>
+        </table>
+        <table style="width:100%">
+          <tr>
+            <td style="width: 3%;"></td>
+            <td><button type="button" class="accordion2" style="width:fit-content;height:fit-content;"> <img src="pics/infocream.svg" aria-hidden="true" class="infocircle"></svg></button>
+              <div class="panel2">
+                Initial cost of solar panel system.
+              </div>     
+            </td>
+          </tr>
+        </table>
+
+        <table style="width:100%">
+          <tr>
+            <td rowspan="2" style="width: 3%;">
+            </td>
+            <td>Grid Annual Electricity</td>
+            <td rowspan="2" style="width: fit-content;"><output class = "result" type="text" id="save5">&nbsp;</output></td>
+          </tr>
+          <tr>
+            <td><small>$/year</small></td>
+          </tr>
+        </table>
+        <table style="width:100%">
+          <tr>
+            <td style="width: 3%;"></td>
+            <td><button type="button" class="accordion2" style="width:fit-content;height:fit-content;"> <img src="pics/infocream.svg" aria-hidden="true" class="infocircle"></svg></button>
+              <div class="panel2">
+                Yearly electric bill from the grid, reduced by the portion of solar energy coverage. 
+              </div>     
+            </td>
+          </tr>
+        </table>
+
+        <table style="width:100%">
+          <tr>
+            <td rowspan="2" style="width: 3%;">
+            </td>
+            <td>Lifetime Cost  <output class="lifetime1" id="lifetime1"/></td>
+            <td rowspan="2" style="width: fit-content;"><output class = "result" type="text" id="save6">&nbsp;</output></td>
+          </tr>
+          <tr>
+            <td><small>$</small></td>
+          </tr>
+        </table>
+        <table style="width:100%">
+          <tr>
+            <td style="width: 3%;"></td>
+            <td><button type="button" class="accordion2" style="width:fit-content;height:fit-content;"> <img src="pics/infocream.svg" aria-hidden="true" class="infocircle"></svg></button>
+              <div class="panel2">
+                Total cost of PV system and grid electricity throughout the lifespan of the system.
+              </div>     
+            </td>
+          </tr>
+        </table>
+
+        <h4>SAVINGS </h4>
+        <table style="width:100%">
+          <tr>
+            <td rowspan="2" style="width: 3%;">
+            </td>
+            <td>Lifetime Savings  <output class="lifetime1" id="lifetime2"/></td>
+            <td rowspan="2" style="width: fit-content;"><output class = "result" type="text" id="save7">&nbsp;</output></td>
+          </tr>
+          <tr>
+            <td><small>$</small></td>
+          </tr>
+        </table>
+        <table style="width:100%">
+          <tr>
+            <td style="width: 3%;"></td>
+            <td><button type="button" class="accordion2" style="width:fit-content;height:fit-content;"> <img src="pics/infocream.svg" aria-hidden="true" class="infocircle"></svg></button>
+              <div class="panel2">
+                Total savings throughout the lifespan of the PV system, compared to if electricity was fully purchased from the grid.
+              </div>     
+            </td>
+          </tr>
+        </table>
+
+        <table style="width:100%">
+          <tr>
+            <td rowspan="2" style="width: 3%;">
+            </td>
+            <td>Annual Electric Bill Savings</td>
+            <td rowspan="2" style="width: fit-content;"><output class = "result" type="text" id="save8">&nbsp;</output></td>
+          </tr>
+          <tr>
+            <td><small>$/year</small></td>
+          </tr>
+        </table>
+        <table style="width:100%">
+          <tr>
+            <td style="width: 3%;"></td>
+            <td><button type="button" class="accordion2" style="width:fit-content;height:fit-content;"> <img src="pics/infocream.svg" aria-hidden="true" class="infocircle"></svg></button>
+              <div class="panel2">
+                Yearly electric bill savings with the PV system, compared to if electricity was fully purchased from the grid.
+              </div>     
+            </td>
+          </tr>
+        </table>
+
+        <table style="width:100%">
+          <tr>
+            <td rowspan="2" style="width: 3%;">
+            </td>
+            <td>Equivalent Electricity Cost</td>
+            <td rowspan="2" style="width: fit-content;"><output class = "result" type="text" id="save9">&nbsp;</output></td>
+          </tr>
+          <tr>
+            <td><small>$/kWh</small></td>
+          </tr>
+          <tr>
+            <td style="width: 3%;">
+            <td style="font-size: 13px;">compared to grid electricity</td>
+            <td style="width: fit-content;"><output class = "resultComp" type="text" id="saveA">&nbsp;</output></td>
+          </tr>
+        </table>
+        <div class="quarterBR"></div>
+        <table style="width:100%">
+          <tr>
+            <td style="width: 3%;"></td>
+            <td><button type="button" class="accordion2" style="width:fit-content;height:fit-content;"> <img src="pics/infocream.svg" aria-hidden="true" class="infocircle"></svg></button>
+              <div class="panel2">
+                Equivalent electricity cost per kWh with the PV system.
+              </div>     
+            </td>
+          </tr>
+        </table>
+        <table style="width:100%">
+          <tr>
+            <td rowspan="2" style="width: 3%;">
+            </td>
+            <td>Return on Investment Period</td>
+            <td rowspan="2" style="width: fit-content;"><output class = "result" type="text" id="save10">&nbsp;</output></td>
+          </tr>
+          <tr>
+            <td><small>years</small></td>
+          </tr>
+        </table>
+        <table style="width:100%">
+          <tr>
+            <td style="width: 3%;"></td>
+            <td><button type="button" class="accordion2" style="width:fit-content;height:fit-content;"> <img src="pics/infocream.svg" aria-hidden="true" class="infocircle"></svg></button>
+              <div class="panel2">
+                Expected ROI period of the PV system. A reasonable ROI would be below the system's lifespan. ROI period can be faster if your region has solar panel-related government incentives, such as the US federal solar tax credit.
+              </div>     
+            </td>
+          </tr>
+        </table>
+
+        <div class="quarterBR"></div>
+        <table style="width:100%">
+          <tr>
+            <td><button class="prev" onclick="ThreeToTwo();">&#10096;&#10096; PREV</button> 
+            </td>
+            <td></td>
+            <td><button class="next" onclick="ThreeToFour();">NEXT &#10097;&#10097;</button> 
+            </td>
+          </tr>
+        </table>
+      
+        <div class="halfBR"></div>
+        <div class="halfBR"></div>
+
+      </div>
+
+
+      <div class="tab-pane fade" id="carbon" role="tabpanel" aria-labelledby="carbon-tab">
+        <h4>CARBON EMISSION </h4>
+        <table style="width:100%">
+          <tr>
+            <td rowspan="2" style="width: 3%;">
+            </td>
+            <td>Annual CO<sub>2</sub> Emission</td>
+            <td rowspan="2" style="width: fit-content;"><output class = "result" type="text" id="car2">&nbsp;</output></td>
+          </tr>
+          <tr>
+            <td><small>kgCO<sub>2</sub>eq/year</small></td>
+          </tr>
+          <tr>
+            <td style="width: 3%;">
+            <td style="font-size: 13px;">compared to grid electricity</td>
+            <td style="width: fit-content;"><output class = "resultComp" type="text" id="car1">&nbsp;</output></td>
+          </tr>
+        </table>
+        <div class="quarterBR"></div>
+        <table style="width:100%">
+          <tr>
+            <td style="width: 3%;"></td>
+            <td><button type="button" class="accordion2" style="width:fit-content;height:fit-content;"> <img src="pics/infocream.svg" aria-hidden="true" class="infocircle"></svg></button>
+              <div class="panel2">
+                Yearly CO<sub>2</sub> emission with the PV system.
+              </div>     
+            </td>
+          </tr>
+        </table>
+
+        <table style="width:100%">
+          <tr>
+            <td rowspan="2" style="width: 3%;">
+            
+            </td>
+            <td>Annual CO<sub>2</sub> Prevention</td>
+            <td rowspan="2" style="width: fit-content;"><output class = "result" type="text" id="car3">&nbsp;</output></td>
+          </tr>
+          <tr>
+            <td><small>kgCO<sub>2</sub>eq/year</small></td>
+          </tr>
+        </table>
+        <table style="width:100%">
+          <tr>
+            <td style="width: 3%;"></td>
+            <td><button type="button" class="accordion2" style="width:fit-content;height:fit-content;"> <img src="pics/infocream.svg" aria-hidden="true" class="infocircle"></svg></button>
+              <div class="panel2">
+                Yearly CO<sub>2</sub> emission prevented, compared to if electricity was fully purchased from the grid.
+              </div>     
+            </td>
+          </tr>
+        </table>
+
+        <table style="width:100%">
+          <tr>
+            <td rowspan="2" style="width: 3%;">
+            </td>
+            <td>Lifetime CO<sub>2</sub> Prevention  <output class="lifetime1" id="lifetime3"/> </td>
+            <td rowspan="2" style="width: fit-content;"><output class = "result" type="text" id="car4">&nbsp;</output></td>
+          </tr>
+          <tr>
+            <td><small>kgCO<sub>2</sub>eq</small></td>
+          </tr>
+        </table>
+        <table style="width:100%">
+          <tr>
+            <td style="width: 3%;"></td>
+            <td><button type="button" class="accordion2" style="width:fit-content;height:fit-content;"> <img src="pics/infocream.svg" aria-hidden="true" class="infocircle"></svg></button>
+              <div class="panel2">
+                CO<sub>2</sub> emission prevented throughout the lifespan of the PV system.
+              </div>     
+            </td>
+          </tr>
+        </table>
+
+        
+        <table style="width:100%">
+          <tr>
+            <td rowspan="1" style="width: 3%;">
+            </td>
+            <td style="font-size: 14px; font-style: italic;">
+              The lifetime carbon emission prevented is equivalent to:  
+            </td>
+          </tr>
+        </table>
+        
+        <table style="width:100%">
+          <tr>
+            <td rowspan="1" style="width: 3%;">
+            </td>
+            <td rowspan="1" style="width: 4%;vertical-align: top;">
+              <svg width="12" height="20">
+              <circle cx="6" cy="10" r="3" stroke= 'rgb(57, 65, 78)' stroke-width="2" fill="rgba(245, 245, 245, 0.97)" />
+              </svg>
+            </td>
+            <td style="width:fit-content;height:fit-content;text-align: justify;padding-right: 2%;padding-top: 4px;font-size: 13px; font-style: italic;">
+              <output class="carboneq" id="carboneqtext1"/> Planting 0 trees
+            </td>
+          </tr>
+          <tr>
+            <td rowspan="1" style="width: 3%;">
+            </td>
+            <td rowspan="1" style="width: 4%;vertical-align: top;">
+              <svg width="12" height="20">
+              <circle cx="6" cy="10" r="3" stroke= 'rgb(57, 65, 78)' stroke-width="2" fill="rgba(245, 245, 245, 0.97)" />
+              </svg>
+            </td>
+            <td style="width:fit-content;height:fit-content;text-align: justify;padding-right: 2%;padding-top: 4px;font-size: 13px; font-style: italic;">
+              <output class="carboneq" id="carboneqtext2"/> Avoiding the use of 0 plastic bags
+            </td>
+          </tr>
+          <tr>
+            <td rowspan="1" style="width: 3%;">
+            </td>
+            <td rowspan="1" style="width: 4%;vertical-align: top;">
+              <svg width="12" height="20">
+              <circle cx="6" cy="10" r="3" stroke= 'rgb(57, 65, 78)' stroke-width="2" fill="rgba(245, 245, 245, 0.97)" />
+              </svg>
+            </td>
+            <td style="width:fit-content;height:fit-content;text-align: justify;padding-right: 2%;padding-top: 4px;font-size: 13px; font-style: italic;">
+              <output class="carboneq" id="carboneqtext3"/> Driving a gas-powered car around the world 0 times
+            </td>
+          </tr>
+        </table>
+
+        <div class="halfBR"></div>
+        <div class="quarterBR"></div>
+        
+        <table style="width:100%">
+          <tr>
+            <td><button class="prevmid" onclick="FourToThree();">&#10096;&#10096; PREV</button> 
+            </td>
+          </tr>
+        </table>
+      
+        <div class="halfBR"></div>
+        <div class="halfBR"></div>
+
+      </div>
+
+
+      <div class="tab-pane fade" id="about" role="tabpanel" aria-labelledby="about-tab">
+        <h5>About</h5>
+        <p style="font-size: 14px; text-align: justify;">
+          This PWA (Progressive Web App) was made by a master graduate in sustainable buildings to help estimate investments on solar panel installation. 
+          Along with the capital and operational costs and savings, this tool also emphasizes the prevention of carbon emission that comes with utilizing solar energy. 
+          The overall goal is to support the continuously increasing adoption rate of solar panels towards a global clean energy future.
+          <div style="text-align: right; ">- CK</div>
+
+        </p>
+        <div class="halfBR"></div>
+      </div>
+
+      
+      <div class="tab-pane fade" id="references" role="tabpanel" aria-labelledby="references-tab">
+        <h5>References </h5>
+        <p style="font-size: 14px; text-align: justify;">
+          <sup> [1]</sup>The World Bank Group (2020) <i>Global Solar Atlas.</i> https://globalsolaratlas.info/download/world. (22 June 2020).
+          <br>
+          <br>
+          <sup> [2]</sup>Jordan, D. C. and Kurtz, S.R. (2012) <i>Photovoltaic Degradation Rates — An Analytical Review.</i> National Renewable Energy Laboratory. NREL/JA-5200-51664.
+          <br>
+          <br>   
+          <sup> [3]</sup>Ogbeba, J. E. and Hoskara, E. The Evaluation of Single-Family Detached Housing Units in Terms of Integrated Photovoltaic Shading Devices: The Case of Northern Cyprus. <i>Sustainability 2019, 11, 593, ss. 49-67.</i> DOI:10.3390/su11030593.
+          <br>
+          <br>          
+          <sup> [4]</sup>Koffi, Brigitte; Cerutti, Alessandro; Duerr, Marlene; Iancu, Andreea; Kona, Albana; Janssens-Maenhout, Greet (2017) <i>CoM Default Emission Factors for the Member States of the European Union - Version 2017</i>, European Commission, Joint Research Centre (JRC) [Dataset] PID: http://data.europa.eu/89h/jrc-com-ef-comw-ef-2017.
+
+        </p>
+       
+        
+        <div class="halfBR"></div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+
+  
+
+
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+  </body>
+</html>
