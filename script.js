@@ -1,6 +1,10 @@
-if ("serviceWorker" in navigator) {
-  // register service worker
-  navigator.serviceWorker.register("sw.js");
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service_worker.js')
+          .then((reg) => {
+          console.log('Service worker registered.', reg);
+          });
+  });
 }
 
 
