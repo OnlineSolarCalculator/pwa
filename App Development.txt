@@ -1,6 +1,3 @@
-1. make it searchable
-
-
 1. bikin svg buat 4 logo
 2. kalo belom calculate ga bsa buka 3 tab lainnya?
 
