@@ -1,32 +1,54 @@
-importScripts(
-  "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js"
-);
-const plugin = maxEntries => {
-  return [
-    new workbox.expiration.Plugin({
-      maxEntries: maxEntries,
-      maxAgeSeconds: 7 * 24 * 60 * 60
-    }),
-    new workbox.cacheableResponse.Plugin({
-      statuses: [0, 200]
-    })
-  ];
-};
-workbox.precaching.precacheAndRoute([
-  {
-    "url": "offline.html",
-    "revision": "251c61f7b7ea7556054e7d60cab8611f"
-  }
-]);
-const networkFirstHandler = new workbox.strategies.NetworkFirst({
-  cacheName: "cache-name",
-  plugins: plugin(10)
+const cacheName = 'pvdata';
+const staticAssets = [
+  './',
+  './index.html',
+  './styles.css',
+  './script.js',
+  './manifest.json',
+  './images/icons-192.png',
+  './images/icons-512.png',
+  './pics/infocream.svg',
+  './pics/infoyellow.svg',
+  './pics/LOGO.svg',
+  './pics/SVG.svg',
+  './pics/PVmap.png',
+];
+
+
+self.addEventListener('install', async e => {
+  const cache = await caches.open("pvdata");
+  return self.skipWaiting();
 });
-const FALLBACK_URL = workbox.precaching.getCacheKeyForURL("/offline.html");
-const matcher = ({ event }) => event.request.mode === "navigate";
-const handler = ({ event }) =>
-  networkFirstHandler
-    .handle({ event })
-    .then(response => response || caches.match(FALLBACK_URL))
-    .catch(() => caches.match(FALLBACK_URL));
-workbox.routing.registerRoute(matcher, handler);
+
+self.addEventListener('activate', e => {
+  self.clients.claim();
+});
+
+self.addEventListener('fetch', async e => {
+  const req = e.request;
+  const url = new URL(req.url);
+
+  if (url.origin === location.origin) {
+    e.respondWith(cacheFirst(req));
+  } else {
+    e.respondWith(networkAndCache(req));
+  }
+});
+
+async function cacheFirst(req) {
+  const cache = await caches.open("pvdata");
+  const cached = await cache.match(req);
+  return cached || fetch(req);
+}
+
+async function networkAndCache(req) {
+  const cache = await caches.open("pvdata");
+  try {
+    const fresh = await fetch(req);
+    await cache.put(req, fresh.clone());
+    return fresh;
+  } catch (e) {
+    const cached = await cache.match(req);
+    return cached;
+  }
+}
